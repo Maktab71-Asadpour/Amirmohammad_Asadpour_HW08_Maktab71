@@ -1,0 +1,43 @@
+﻿@model List<Person>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<html>
+
+    <head>
+        <style>
+            th {
+                border-bottom: 2px solid black;
+                border-collapse: collapse;
+            }
+            th, tr, td {
+                padding: 4px;
+                min-width: 100px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <table>
+            <tr>
+                <th>Number</th>
+                <th>ID</th>
+                <th>Name</th>
+                <th colspan="2">Action</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Model.FindIndex(p => p==item)</td>
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    <td><a type="button" class="btn btn-danger" asp-action="DeleteItem" asp-controller="Home" asp-route-id="@item.Id">Delete</a></td>
+                    <td><a type="button" class="btn btn-primary" asp-action="EditItem" asp-controller="Home" asp-route-id="@item.Id">Edit</a></td>
+                </tr>
+            }
+        </table>
+    </body>
+
+</html>

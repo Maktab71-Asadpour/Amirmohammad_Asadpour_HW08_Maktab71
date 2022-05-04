@@ -1,0 +1,28 @@
+﻿@model Person
+
+<html>
+
+    <head>
+        <style>
+            input {
+                margin-bottom: 8px;
+            }
+        </style>
+    </head>
+    
+    
+    <body>
+        <div class="text-center">
+            <form action="/Home/SubmitEditedItem">
+                <label for="id">ID</label><br>
+                <input type="text" id="id" name="id" value="@Model.Id" disabled readonly><br>
+                <label for="name">Name:</label><br>
+                <input type="text" id="name" name="name" value = "@Model.Name"><br>
+                <input type="submit" class="btn btn-primary" value="Submit">
+            </form>
+        </div>
+        <br/><br/><br/>
+        
+    </body>
+
+</html>
